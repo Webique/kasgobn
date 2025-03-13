@@ -3,10 +3,16 @@ const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
 const navLinksItems = document.querySelectorAll('.nav-links a');
 const overlay = document.createElement('div');
+const closeButton = document.createElement('div');
 
 // ✅ Create an overlay div
 overlay.classList.add('overlay');
 document.body.appendChild(overlay);
+
+// ✅ Create Close Button (for mobile)
+closeButton.classList.add('close-button');
+closeButton.innerHTML = '&times;';
+navLinks.appendChild(closeButton);
 
 // ✅ Toggle Dropdown Menu
 hamburger.addEventListener('click', () => {
@@ -14,6 +20,9 @@ hamburger.addEventListener('click', () => {
     navLinks.classList.toggle('active');
     overlay.classList.toggle('active');
 });
+
+// ✅ Close Menu When Clicking Close Button
+closeButton.addEventListener('click', closeMenu);
 
 // ✅ Close Menu When Clicking a Navigation Link + Smooth Scroll
 navLinksItems.forEach(link => {
@@ -34,31 +43,29 @@ navLinksItems.forEach(link => {
         }
 
         // ✅ Close the dropdown menu after clicking a link
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-        overlay.classList.remove('active');
+        closeMenu();
     });
 });
 
 // ✅ Close Menu When Clicking Outside the Navbar
-overlay.addEventListener('click', () => {
-    hamburger.classList.remove('active');
-    navLinks.classList.remove('active');
-    overlay.classList.remove('active');
-});
+overlay.addEventListener('click', closeMenu);
 
-// ✅ Close Menu When Clicking Anywhere on the Screen (extra safety)
 document.addEventListener('click', (e) => {
     if (
         !navLinks.contains(e.target) &&
         !hamburger.contains(e.target) &&
-        hamburger.classList.contains('active')
+        navLinks.classList.contains('active')
     ) {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-        overlay.classList.remove('active');
+        closeMenu();
     }
 });
+
+// ✅ Function to Close Menu
+function closeMenu() {
+    hamburger.classList.remove('active');
+    navLinks.classList.remove('active');
+    overlay.classList.remove('active');
+}
 
 // ✅ Fix for footer, about, and branches section links
 document.querySelectorAll('a[href^="#"]').forEach(link => {
@@ -78,9 +85,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
             });
         }
 
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
-        overlay.classList.remove('active');
+        closeMenu(); // ✅ Close menu after navigating
     });
 });
 
