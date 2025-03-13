@@ -632,11 +632,11 @@ body.overlay-active::before {
 }
 
 
-/* Hero Section */
+/* ✅ Hero Section */
 .hero-section {
     position: relative;
     width: 100%;
-    height: 100vh; /* Full viewport height */
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -649,9 +649,18 @@ body.overlay-active::before {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* Keeps it fixed while scrolling for a clean parallax effect */
-    filter: brightness(1); /* Ensure the image is clear and bright */
 }
+
+/* ✅ Adjust for Mobile Screens */
+@media (max-width: 768px) {
+    .hero-image {
+        background-size: cover; /* Keep it zoomed to fill the height */
+        background-position: center center; /* Center vertically and horizontally */
+        background-attachment: scroll;
+        height: 80vh; /* Make it taller to fill the height but avoid cropping */
+    }
+}
+
 
 .hero-overlay {
     position: absolute;
@@ -696,7 +705,7 @@ body.overlay-active::before {
         height: 60vh; /* Make it shorter on smaller screens for better fit */
     }
 }
-/* Hero Section */
+/* ✅ Hero Section */
 .hero-section {
     position: relative;
     width: 100%;
@@ -713,9 +722,19 @@ body.overlay-active::before {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-    filter: brightness(1);
 }
+
+/* ✅ Adjust for Mobile Screens */
+@media (max-width: 768px) {
+    .hero-image {
+        background-size: cover; /* Keep it zoomed to fill the height */
+        background-position: center 40%; /* Focus slightly higher */
+        background-attachment: scroll;
+        height: 100vh; /* Fill more height on phones */
+    }
+}
+
+
 
 .hero-overlay {
     position: absolute;
