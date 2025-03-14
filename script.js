@@ -133,13 +133,26 @@ navLinksItems.forEach(link => {
         overlay.classList.remove('active');
     });
 });
-function showPopup(title, price, img) {
-    document.getElementById('popup-title').textContent = title;
-    document.getElementById('popup-price').textContent = `${price} Riyals`;
-    document.getElementById('popup-img').src = `assets/${img}`;
-    document.getElementById('popup').style.display = 'flex';
+function showPopup(name, price, image) {
+    const popup = document.querySelector('.popup');
+    const popupContent = document.querySelector('.popup-content');
+    
+    popupContent.innerHTML = `
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <img src="assets/${image}" alt="${name}">
+        <h3 class="item-name">${name}</h3>
+        <p class="item-price">${price} Riyals</p>
+    `;
+    
+    popup.style.display = 'flex';
 }
 
 function closePopup() {
-    document.getElementById('popup').style.display = 'none';
+    document.querySelector('.popup').style.display = 'none';
 }
+
+document.querySelector('.popup').addEventListener('click', (e) => {
+    if (e.target === document.querySelector('.popup')) {
+        closePopup();
+    }
+});
