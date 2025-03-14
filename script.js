@@ -105,3 +105,41 @@ tabs.forEach(tab => {
         document.getElementById(`${tab.dataset.branch}-info`).classList.add('active');
     });
 });
+navLinksItems.forEach(link => {
+    link.addEventListener('click', (e) => {
+        const targetHref = link.getAttribute('href');
+
+        // ✅ Skip smooth scroll for external pages like menu.html
+        if (targetHref.includes('menu.html')) return;
+
+        e.preventDefault();
+
+        const targetId = targetHref.slice(1);
+        const targetSection = document.getElementById(targetId);
+
+        if (targetSection) {
+            const headerHeight = document.querySelector('.main-header').offsetHeight;
+            const sectionPosition = targetSection.getBoundingClientRect().top + window.scrollY - headerHeight;
+
+            window.scrollTo({
+                top: sectionPosition,
+                behavior: 'smooth'
+            });
+        }
+
+        // Close the dropdown menu after clicking a link
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        overlay.classList.remove('active');
+    });
+});
+function showPopup(title, price, img) {
+    document.getElementById('popup-title').textContent = title;
+    document.getElementById('popup-price').textContent = `${price} Riyals`;
+    document.getElementById('popup-img').src = `assets/${img}`;
+    document.getElementById('popup').style.display = 'flex';
+}
+
+function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+}

@@ -1394,3 +1394,265 @@ body.overlay-active::before {
         font-size: 0.85rem;
     }
 }
+
+
+
+/* Section Title */
+.section-title {
+    font-size: 4rem;
+    font-weight: 900;
+    text-align: center;
+    color: var(--navbar-bg);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 4rem;
+    margin-top: 65px; /* ✅ Push the title down */
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    width: 80px;
+    height: 4px;
+    background-color: var(--navbar-bg);
+    display: block;
+    margin: 14px auto 0;
+    border-radius: 8px;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 3rem;
+        margin-bottom: 2.5rem;
+        margin-top: 75px; /* ✅ Adjust for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 2.7rem;
+        margin-bottom: 2rem;
+        margin-top: 65px; /* ✅ Adjust for mobile screens */
+    }
+}
+
+
+/* Category Title */
+.category-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--navbar-bg);
+    margin-bottom: 2.5rem;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* Menu Items Grid */
+.menu-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 24px;
+    padding: 0 20px; /* ✅ Added padding to avoid edge contact */
+}
+
+/* Menu Item Styling */
+.menu-item {
+    background-color: #ffffff;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.menu-item img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+/* Menu Details */
+.menu-details {
+    padding: 1.8rem;
+    text-align: center;
+}
+
+.item-name {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 8px;
+    text-transform: capitalize;
+}
+
+.item-price {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #555;
+    margin-top: 0.5rem;
+}
+
+/* Hover Effect */
+.menu-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+}
+
+/* Popup Styling */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.popup-content {
+    background-color: #ffffff;
+    padding: 2.5rem;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 420px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.popup-content img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 16px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    font-size: 2.4rem;
+    cursor: pointer;
+    color: var(--text-dark);
+    transition: transform 0.2s ease;
+}
+
+.close-btn:hover {
+    transform: scale(1.1);
+    color: #ff4d4f;
+}
+
+/* Back to Home Button (Centered) */
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #0188c0 0%, #01a0e4 100%);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 30px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.back-button:hover {
+    background: linear-gradient(135deg, #0177a8 0%, #019ad9 100%);
+    transform: translateX(-50%) translateY(-3px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 3rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .category-title {
+        font-size: 2.2rem;
+    }
+
+    .menu-items {
+        padding: 0 16px; /* ✅ Added consistent padding for small screens */
+    }
+
+    .menu-item img {
+        height: 180px;
+    }
+
+    .item-name {
+        font-size: 1.5rem;
+    }
+
+    .item-price {
+        font-size: 1.3rem;
+    }
+
+    .popup-content img {
+        height: 180px;
+    }
+
+    .back-button {
+        font-size: 0.9rem;
+        padding: 10px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 2.7rem; /* ✅ Slightly larger for impact */
+        margin-bottom: 2rem; /* ✅ Better spacing */
+    }
+
+    .category-title {
+        font-size: 2rem;
+    }
+
+    .menu-items {
+        padding: 0 12px; /* ✅ More compact for phones */
+    }
+
+    .menu-item img {
+        height: 160px;
+    }
+
+    .item-name {
+        font-size: 1.4rem;
+    }
+
+    .item-price {
+        font-size: 1.2rem;
+    }
+
+    .popup-content img {
+        height: 160px;
+    }
+
+    .close-btn {
+        font-size: 2rem;
+    }
+}
+
+/* Animation for Pop-Up */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

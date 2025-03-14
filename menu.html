@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu | Kasgobn</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+    <!-- Back to Home Button -->
+<a href="index.html" class="back-button">&larr; Back to Home</a>
+
+<!-- Menu Section -->
+<section class="menu-section">
+    <div class="container">
+        <h1 class="section-title">Our Menu</h1>
+
+        <!-- Twists Section -->
+        <div class="menu-category">
+            <h2 class="category-title">Twists</h2>
+            <div class="menu-items">
+
+                <!-- Item 1 -->
+                <div class="menu-item" onclick="showPopup('Cheese & Egg Twist', 5, 'pic1.jpg')">
+                    <img src="assets/pic1.jpg" alt="Cheese & Egg Twist">
+                    <div class="menu-details">
+                        <h3 class="item-name">Cheese & Egg Twist</h3>
+                        <p class="item-price">5 Riyals</p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="menu-item" onclick="showPopup('Liver & Cheese Twist', 7, 'pic2.jpg')">
+                    <img src="assets/pic2.jpg" alt="Liver & Cheese Twist">
+                    <div class="menu-details">
+                        <h3 class="item-name">Liver & Cheese Twist</h3>
+                        <p class="item-price">7 Riyals</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="menu-item" onclick="showPopup('Cheese Cup Twist', 6, 'pic3.jpg')">
+                    <img src="assets/pic3.jpg" alt="Cheese Cup Twist">
+                    <div class="menu-details">
+                        <h3 class="item-name">Cheese Cup Twist</h3>
+                        <p class="item-price">6 Riyals</p>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="menu-item" onclick="showPopup('Halawa Tahini Twist', 5, 'pic4.jpg')">
+                    <img src="assets/pic4.jpg" alt="Halawa Tahini Twist">
+                    <div class="menu-details">
+                        <h3 class="item-name">Halawa Tahini Twist</h3>
+                        <p class="item-price">5 Riyals</p>
+                    </div>
+                </div>
+
+                <!-- Item 5 -->
+                <div class="menu-item" onclick="showPopup('Shawarma', 7, 'pic5.jpg')">
+                    <img src="assets/pic5.jpg" alt="Shawarma">
+                    <div class="menu-details">
+                        <h3 class="item-name">Shawarma</h3>
+                        <p class="item-price">7 Riyals</p>
+                    </div>
+                </div>
+
+                <!-- Item 6 -->
+                <div class="menu-item" onclick="showPopup('Cheese Shakshouka Twist', 7, 'pic6.jpg')">
+                    <img src="assets/pic6.jpg" alt="Cheese Shakshouka Twist">
+                    <div class="menu-details">
+                        <h3 class="item-name">Cheese Shakshouka Twist</h3>
+                        <p class="item-price">7 Riyals</p>
+                    </div>
+                </div>
+
+                <!-- Item 7 -->
+                <div class="menu-item" onclick="showPopup('Peanut Butter & Jam Twist', 5, 'pic7.jpg')">
+                    <img src="assets/pic7.jpg" alt="Peanut Butter & Jam Twist">
+                    <div class="menu-details">
+                        <h3 class="item-name">Peanut Butter & Jam Twist</h3>
+                        <p class="item-price">5 Riyals</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Popup Section -->
+<div class="popup" id="popup">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <img src="" alt="" id="popup-img">
+        <h3 id="popup-title"></h3>
+        <p id="popup-price"></p>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
