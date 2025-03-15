@@ -133,26 +133,25 @@ navLinksItems.forEach(link => {
         overlay.classList.remove('active');
     });
 });
-function showPopup(name, price, image) {
+// ✅ Open Popup
+function showPopup(name, price, img) {
     const popup = document.querySelector('.popup');
-    const popupContent = document.querySelector('.popup-content');
-    
-    popupContent.innerHTML = `
-        <span class="close-btn" onclick="closePopup()">&times;</span>
-        <img src="assets/${image}" alt="${name}">
-        <h3 class="item-name">${name}</h3>
-        <p class="item-price">${price} Riyals</p>
-    `;
-    
+    const popupTitle = popup.querySelector('.popup-title');
+    const popupPrice = popup.querySelector('.popup-price');
+    const popupImg = popup.querySelector('img');
+
+    popupTitle.textContent = name;
+    popupPrice.textContent = `${price} Riyals`;
+    popupImg.src = `assets/${img}`;
+
     popup.style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // ✅ Disable scroll when popup is open
 }
 
+// ✅ Close Popup
 function closePopup() {
-    document.querySelector('.popup').style.display = 'none';
+    const popup = document.querySelector('.popup');
+    popup.style.display = 'none';
+    document.body.style.overflow = 'auto'; // ✅ Enable scroll when popup is closed
 }
 
-document.querySelector('.popup').addEventListener('click', (e) => {
-    if (e.target === document.querySelector('.popup')) {
-        closePopup();
-    }
-});
