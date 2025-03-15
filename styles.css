@@ -1438,7 +1438,7 @@ body.overlay-active::before {
 }
 
 
-/* Category Title */
+/* ✅ Category Title */
 .category-title {
     font-size: 2.5rem;
     font-weight: 800;
@@ -1447,12 +1447,14 @@ body.overlay-active::before {
     text-align: center;
     letter-spacing: 1px;
 }
+
 /* ✅ Menu Items Grid */
 .menu-items {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
     gap: 24px;
     padding: 0 20px;
+    justify-content: center; /* ✅ Center grid */
 }
 
 /* ✅ Menu Item Styling */
@@ -1465,6 +1467,9 @@ body.overlay-active::before {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
     transform: scale(0.98);
+    width: 100%; /* ✅ Force consistent size */
+    max-width: 320px; /* ✅ Same width for all items */
+    margin: 0 auto; /* ✅ Center the item */
 }
 
 .menu-item:hover {
@@ -1475,8 +1480,8 @@ body.overlay-active::before {
 /* ✅ Make the full image show without cutting */
 .menu-item img {
     width: 100%;
-    height: 320px;
-    object-fit: contain;
+    height: 320px; /* ✅ Same height for all items */
+    object-fit: cover;
     border-top-left-radius: 24px;
     border-top-right-radius: 24px;
 }
@@ -1486,7 +1491,7 @@ body.overlay-active::before {
     .menu-item img {
         border-radius: 16px; /* ✅ Round edges on phone */
         height: 350px; /* ✅ Adjust height on phone */
-        object-fit: cover; /* ✅ Keep full image visibility */
+        object-fit: cover;
     }
 }
 
@@ -1544,7 +1549,7 @@ body.overlay-active::before {
 .popup img {
     width: 100%;
     height: 400px;
-    object-fit: contain;
+    object-fit: cover;
     border-radius: 16px;
 }
 
@@ -1591,14 +1596,14 @@ body.overlay-active::before {
     /* ✅ Make popup image taller and show the whole thing */
     .popup img {
         height: 450px;
-        object-fit: contain;
+        object-fit: cover;
         border-radius: 16px;
     }
 
     .menu-item img {
         height: 350px;
-        object-fit: contain;
-        border-radius: 16px; /* ✅ Round edges on phones */
+        object-fit: cover;
+        border-radius: 16px;
     }
 
     .popup-title {
@@ -1631,6 +1636,15 @@ body.overlay-active::before {
 
 /* ✅ Laptop Adjustments (Restore original height) */
 @media (min-width: 769px) {
+    .menu-items {
+        justify-content: center; /* ✅ Center grid on laptops */
+    }
+
+    .menu-item {
+        height: auto;
+        width: 320px;
+    }
+
     .popup-content {
         padding: 2rem;
         width: 500px;
@@ -1658,6 +1672,7 @@ body.overlay-active::before {
         font-size: 1.8rem;
     }
 }
+
 
 
 
