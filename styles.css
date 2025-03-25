@@ -1782,3 +1782,39 @@ body.overlay-active::before {
         transform: scale(1);
     }
 }
+/* ✅ Mobile Adjustments (Phones) */
+@media (max-width: 480px) {
+    .popup-content {
+        padding: 1.5rem;
+        width: 95%;
+        max-width: none;
+        height: 600px; /* ✅ Increased height for better fit */
+        border-radius: 20px;
+    }
+
+    /* ✅ Make popup image taller and show the whole thing */
+    .popup img {
+        height: 450px; /* ✅ Increased for better fit */
+        object-fit: cover;
+        border-radius: 16px;
+    }
+
+    .menu-item img {
+        height: 350px;
+        object-fit: cover;
+        border-radius: 16px;
+    }
+
+    .popup-title {
+        font-size: 1.6rem;
+    }
+
+    .popup-price {
+        font-size: 1.4rem;
+        margin-top: 10px; /* ✅ Add margin to prevent overlap */
+    }
+
+    .close-btn {
+        font-size: 2rem;
+    }
+}
